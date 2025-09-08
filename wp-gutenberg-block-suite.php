@@ -8,7 +8,7 @@
  * Version: 1.0.0
  * Plugin URI: https://github.com/dilipraghavan/wp-gutenberg-block-suite.git
  * Author: Dilip Raghavan
- * Author URI: https://www.wpshiftstudio.
+ * Author URI: https://www.wpshiftstudio.com
  * Domain Path: /languages
  * Text Domain: wp-gutenberg-block-suite
  */

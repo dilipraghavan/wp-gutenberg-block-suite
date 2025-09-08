@@ -21,14 +21,22 @@ const Edit = ({ attributes, setAttributes }) => {
           <RangeControl
             label={__("Number of Items", "wp-gutenberg-block-suite")}
             value={attributes.count}
-            onChange={(newVal) => setAttributes({ count: newVal })}
+            onChange={(newVal) =>
+              setAttributes({
+                count: Math.min(Math.max(newVal, 1), 12),
+              })
+            }
             min={1}
             max={12}
           />
           <RangeControl
             label={__("Number of Columns", "wp-gutenberg-block-suite")}
             value={attributes.columns}
-            onChange={(newVal) => setAttributes({ columns: newVal })}
+            onChange={(newVal) =>
+              setAttributes({
+                columns: Math.min(Math.max(newVal, 1), 4),
+              })
+            }
             min={1}
             max={4}
           />

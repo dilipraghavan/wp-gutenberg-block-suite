@@ -4,8 +4,8 @@
   "description": "A portfolio-ready WordPress plugin showcasing custom Gutenberg blocks (Dynamic Grid & Call-to-Action).",
   "main": "index.js",
   "scripts": {
-    "start": "wp-scripts start",
-    "build": "wp-scripts build",
+    "start": "wp-scripts start --webpack-copy-php",
+    "build": "wp-scripts build --webpack-copy-php",
     "lint:js": "wp-scripts lint-js",
     "lint:css": "wp-scripts lint-style",
     "format": "wp-scripts format"

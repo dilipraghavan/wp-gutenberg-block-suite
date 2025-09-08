@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "wpsuite/dynamic-grid",
+  "title": "Dynamic Content Grid",
+  "description": "Display posts or pages in a responsive grid.",
+  "category": "design",
+  "icon": "grid-view",
+  "keywords": ["grid", "posts", "cards"],
+  "attributes": {
+    "postType": { "type": "string", "default": "post" },
+    "count": { "type": "number", "default": 6 },
+    "columns": { "type": "number", "default": 3 }
+  },
+  "supports": {
+    "inserter": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

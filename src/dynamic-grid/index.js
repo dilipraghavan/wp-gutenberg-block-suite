@@ -6,7 +6,7 @@ import "./style.scss";
 
 import { registerBlockType } from "@wordpress/blocks";
 
-registerBlocktype(metadata.name, {
+registerBlockType(metadata.name, {
   ...metadata,
   edit,
   save,
