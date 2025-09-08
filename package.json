@@ -1,0 +1,37 @@
+{
+  "name": "wp-gutenberg-block-suite",
+  "version": "1.0.0",
+  "description": "A portfolio-ready WordPress plugin showcasing custom Gutenberg blocks (Dynamic Grid & Call-to-Action).",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "format": "wp-scripts format"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dilipraghavan/wp-gutenberg-block-suite.git"
+  },
+  "author": "Dilip Raghavan",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "blocks",
+    "plugin",
+    "react",
+    "portfolio"
+  ],
+  "bugs": {
+    "url": "https://github.com/dilipraghavan/wp-gutenberg-block-suite/issues"
+  },
+  "homepage": "https://github.com/dilipraghavan/wp-gutenberg-block-suite#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^30.23.0",
+    "eslint": "^9.35.0",
+    "prettier": "^3.6.2",
+    "sass": "^1.92.1"
+  }
+}
