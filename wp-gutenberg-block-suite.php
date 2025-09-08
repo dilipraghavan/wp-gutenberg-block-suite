@@ -24,7 +24,7 @@ define('WPGS_URL', plugin_dir_url(__FILE__));
 register_activation_hook( __FILE__, __NAMESPACE__ . '\wpgs_activate' );
 register_deactivation_hook( __FILE__, __NAMESPACE__ . '\wpgs_deactivate' );
 
-include_once(WPGS_PATH . 'includes/register-blocks.php');
+include_once(WPGS_PATH . 'plugin/includes/register-blocks.php');
 
 function wpgs_activate(){
 
