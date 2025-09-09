@@ -7,7 +7,6 @@ if(!defined('ABSPATH'))
 
 
 function wpgs_register_blocks(){
-    error_log('WPGS: registering dynamic-grid...');
     //register_block_type(__DIR__ . '/../../src/cta');
     register_block_type(__DIR__ . '/../../build/dynamic-grid', 
         [

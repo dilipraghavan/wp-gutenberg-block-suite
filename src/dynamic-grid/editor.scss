@@ -1,3 +1,28 @@
 .wpsuite-grid {
-  outline: 1px solid lightblue;
+  display: grid;
+  gap: 1rem;
+}
+
+.wpsuite-grid.columns-1 {
+  grid-template-columns: 1fr;
+}
+.wpsuite-grid.columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.wpsuite-grid.columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.wpsuite-grid.columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.wpsuite-grid .card {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.wpsuite-grid .components-spinner,
+.wpsuite-grid .components-placeholder {
+  margin: 1rem 0;
 }

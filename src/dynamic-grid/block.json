@@ -5,14 +5,15 @@
   "description": "Display posts or pages in a responsive grid.",
   "category": "design",
   "icon": "grid-view",
-  "keywords": ["grid", "posts", "cards"],
+  "keywords": ["grid", "posts", "cards", "list"],
   "attributes": {
     "postType": { "type": "string", "default": "post" },
     "count": { "type": "number", "default": 6 },
     "columns": { "type": "number", "default": 3 }
   },
   "supports": {
-    "inserter": true
+    "inserter": true,
+    "spacing": true
   },
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
