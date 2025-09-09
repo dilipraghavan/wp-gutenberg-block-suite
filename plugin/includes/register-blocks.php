@@ -8,17 +8,9 @@ if(!defined('ABSPATH'))
 
 function wpgs_register_blocks(){
     //register_block_type(__DIR__ . '/../../src/cta');
-    register_block_type(__DIR__ . '/../../build/dynamic-grid', 
-        [
-            'render_callback' => __NAMESPACE__ . '\\wpgs_grid_render_dynamic_block'
-        ]
-    );
+    register_block_type(__DIR__ . '/../../build/dynamic-grid'); 
+    
 }
 
-add_action('init', __NAMESPACE__.'\wpgs_register_blocks');
-
-
-function wpgs_grid_render_dynamic_block(){
-    return "Will implement later...";
-}
+add_action('init', __NAMESPACE__.'\\wpgs_register_blocks');
 
