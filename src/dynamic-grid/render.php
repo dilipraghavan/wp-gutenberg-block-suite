@@ -15,8 +15,6 @@
     $columns = absint(isset($attributes['columns']) ? $attributes['columns'] : 3);
     $columns = max(1, min(4, $columns));
 
-    ob_start();
-
     $query_args = [
         'post_type' => $post_type,
         'posts_per_page' => $count,
@@ -35,12 +33,39 @@
     if($the_query->have_posts()){
         while($the_query->have_posts()){
             $the_query->the_post();
+
+            $thumb_html = '';
+            if(has_post_thumbnail()){
+                $thumb_html = get_the_post_thumbnail(
+                    null,
+                    'medium_large',
+                    ['class' => 'wpsuite-card-thumb']
+                );
+            }
+
+            $permalink = get_permalink();
+            $title = get_the_title();
+            $excerpt = get_the_excerpt();
+
             ?>
             <article <?php post_class('wpsuite-grid-item'); ?> >
-                <a href='<?php echo esc_url(get_permalink()) ?>' target='_blank' rel='noopener noreferrer' >
-                    <h3> <?php echo esc_html(get_the_title()) ?> </h3>
+                <?php 
+                    if($thumb_html){
+                ?>
+                <a class='wpsuite-card-image' href='<?php echo esc_url($permalink) ?>' target='_blank' rel='noopener noreferrer' >
+                    <?php echo $thumb_html ?> 
                 </a>
-                <p> <?php echo wp_kses_post(get_the_excerpt()) ?> </p>
+                <?php
+                    }
+                ?>
+                <h3 class='wpsuite-card-title'>
+                <a href='<?php echo esc_url($permalink) ?>' target='_blank' rel='noopener noreferrer' >
+                    <?php echo esc_html($title) ?>
+                </a>
+                </h3>
+                <div class='wpsuite-card-excerpt'> 
+                    <?php echo wp_kses_post($excerpt) ?>
+                </div>
             </article>
 
 
@@ -53,4 +78,3 @@
     </div> 
     <?php 
     wp_reset_postdata();
-    return ob_get_clean();

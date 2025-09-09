@@ -1,28 +1,98 @@
-.wpsuite-grid {
-  display: grid;
-  gap: 1rem;
-}
+/* Editor-only styles for the Dynamic Grid preview */
+.editor-styles-wrapper {
+  .wpsuite-grid {
+    --grid-gap: 1rem;
+    --card-bg: #fff;
+    --card-border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+    --card-radius: 10px;
 
-.wpsuite-grid.columns-1 {
-  grid-template-columns: 1fr;
-}
-.wpsuite-grid.columns-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-.wpsuite-grid.columns-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-.wpsuite-grid.columns-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
+    display: grid;
+    gap: var(--grid-gap);
 
-.wpsuite-grid .card {
-  padding: 0.75rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-}
+    &.columns-1 {
+      grid-template-columns: 1fr;
+    }
+    &.columns-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &.columns-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &.columns-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
 
-.wpsuite-grid .components-spinner,
-.wpsuite-grid .components-placeholder {
-  margin: 1rem 0;
+    /* The inner list wrapper in your Edit UI */
+    [role="list"] {
+      display: contents; /* Let .card participate directly in the grid */
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: var(--card-border);
+      border-radius: var(--card-radius);
+      padding: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: none; /* keep the editor calm */
+      overflow: hidden; /* guard long content */
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        outline: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:focus-visible {
+          outline: 2px solid #6366f1; /* indigo-500 */
+          outline-offset: 2px;
+          border-radius: 6px;
+        }
+      }
+
+      /* Title (your title is RawHTML inside the link) */
+      /* Normalize spacing regardless of what RawHTML contains */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.25;
+        font-weight: 600;
+      }
+
+      /* Excerpt paragraphs */
+      p {
+        margin: 0.25rem 0 0;
+        color: rgba(0, 0, 0, 0.72);
+        line-height: 1.45;
+
+        /* Clamp to 3 lines for a tidy card preview */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Long words / unbroken URLs */
+      *,
+      *::before,
+      *::after {
+        word-break: break-word;
+      }
+    }
+
+    /* Loading / Empty states spacing inside the grid */
+    .components-spinner,
+    .components-placeholder {
+      margin: 0.5rem 0;
+    }
+  }
 }

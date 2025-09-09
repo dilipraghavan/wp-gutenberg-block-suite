@@ -1,23 +1,149 @@
+/* Dynamic Content Grid — frontend styles */
+
 .wpsuite-grid {
+  /* Layout */
+  --wpsuite-grid-gap: 1rem;
+  --wpsuite-card-radius: 8px;
+  --wpsuite-card-border: 1px solid var(--wpsuite-border, #e5e7eb);
+  --wpsuite-card-bg: var(--wpsuite-surface, #fff);
+  --wpsuite-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --wpsuite-image-radius: 8px;
+  --wpsuite-title-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+  --wpsuite-excerpt-size: 0.95rem;
+
   display: grid;
-  gap: 1rem;
+  gap: var(--wpsuite-grid-gap);
+
+  /* Columns from the class "columns-N" */
+  &.columns-1 {
+    grid-template-columns: 1fr;
+  }
+  &.columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &.columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Responsive collapse */
+  @media (max-width: 960px) {
+    &.columns-4 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 760px) {
+    &.columns-4,
+    &.columns-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    &.columns-4,
+    &.columns-3,
+    &.columns-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Card */
+  .wpsuite-grid-item {
+    background: var(--wpsuite-card-bg);
+    border: var(--wpsuite-card-border);
+    border-radius: var(--wpsuite-card-radius);
+    box-shadow: var(--wpsuite-card-shadow);
+    padding: 0.875rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease;
+
+    /* Remove default margin some themes add via .hentry etc. */
+    margin: 0;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  /* Image link + thumbnail */
+  .wpsuite-card-image {
+    display: block;
+    border-radius: var(--wpsuite-image-radius);
+    overflow: hidden; // keep rounded corners on the image
+
+    img,
+    .wpsuite-card-thumb {
+      display: block;
+      width: 100%;
+      height: auto;
+
+      /* Optional: force a nice crop with aspect ratio */
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+  }
+
+  /* Title */
+  .wpsuite-card-title {
+    margin: 0.25rem 0 0;
+    font-size: var(--wpsuite-title-size);
+    line-height: 1.25;
+    font-weight: 600;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      outline: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus-visible {
+        outline: 2px solid color-mix(in srgb, currentColor 60%, transparent);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  /* Excerpt */
+  .wpsuite-card-excerpt {
+    font-size: var(--wpsuite-excerpt-size);
+    color: color-mix(in srgb, currentColor 75%, transparent);
+
+    /* Limit lines (graceful fallback where unsupported) */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    p {
+      margin: 0;
+    } /* prevent nested p margins from stretching cards */
+  }
 }
 
-.wpsuite-grid.columns-1 {
-  grid-template-columns: 1fr;
-}
-.wpsuite-grid.columns-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-.wpsuite-grid.columns-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-.wpsuite-grid.columns-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.wpsuite-grid .card {
-  padding: 0.75rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
+/* Dark theme hint (inherits if the theme sets body.dark or prefers-color-scheme) */
+@media (prefers-color-scheme: dark) {
+  .wpsuite-grid {
+    --wpsuite-border: rgba(255, 255, 255, 0.16);
+    --wpsuite-surface: rgba(255, 255, 255, 0.04);
+    --wpsuite-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
 }
