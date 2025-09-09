@@ -54,8 +54,21 @@
         }
       }
 
-      /* Title (your title is RawHTML inside the link) */
-      /* Normalize spacing regardless of what RawHTML contains */
+      /* Placeholder thumbnail block */
+      .thumb--placeholder {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 6px;
+        background: repeating-linear-gradient(
+          45deg,
+          #e5e7eb,
+          #e5e7eb 10px,
+          #f3f4f6 10px,
+          #f3f4f6 20px
+        );
+      }
+
+      /* Title (RawHTML inside the link) */
       h1,
       h2,
       h3,
@@ -82,9 +95,7 @@
       }
 
       /* Long words / unbroken URLs */
-      *,
-      *::before,
-      *::after {
+      * {
         word-break: break-word;
       }
     }

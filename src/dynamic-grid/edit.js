@@ -39,6 +39,7 @@ const Edit = ({ attributes, setAttributes }) => {
       <div role="list" aria-live="polite">
         {posts.map((post) => (
           <article key={post.id} className="card" role="listitem">
+            <div className="thumb thumb--placeholder" aria-hidden="true" />
             <a href={post.link} target="_blank" rel="noopener noreferrer">
               <RawHTML>{post.title?.rendered || ""}</RawHTML>
             </a>
