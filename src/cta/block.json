@@ -1,0 +1,38 @@
+{
+  "apiVersion": 2,
+  "name": "wpsuite/cta",
+  "title": "Call To Action",
+  "description": "A reusable call to action block.",
+  "category": "design",
+  "icon": "megaphone",
+  "keywords": ["cta", "call to action", "button"],
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": ""
+    },
+    "body": {
+      "type": "string",
+      "source": "html",
+      "selector": "p",
+      "default": ""
+    },
+    "buttonText": { "type": "string", "default": "Click Here" },
+    "buttonUrl": { "type": "string", "default": "" }
+  },
+  "supports": {
+    "inserter": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "color": {
+      "background": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
