@@ -12,9 +12,7 @@ import { __ } from "@wordpress/i18n";
 
 const Edit = ({ attributes, setAttributes }) => {
   const { postType, count, columns } = attributes;
-  const blockProps = useBlockProps({
-    className: `wpsuite-grid columns-${columns}`,
-  });
+  const blockProps = useBlockProps();
 
   const posts = useSelect(
     (select) =>
@@ -38,12 +36,21 @@ const Edit = ({ attributes, setAttributes }) => {
     content = (
       <div role="list" aria-live="polite">
         {posts.map((post) => (
-          <article key={post.id} className="card" role="listitem">
-            <div className="thumb thumb--placeholder" aria-hidden="true" />
-            <a href={post.link} target="_blank" rel="noopener noreferrer">
-              <RawHTML>{post.title?.rendered || ""}</RawHTML>
-            </a>
-            <RawHTML>{post.excerpt?.rendered || ""}</RawHTML>
+          <article key={post.id} className="wpsuite-grid-item" role="listitem">
+            <div className="wpsuite-card-image">
+              <div
+                className="wpsuite-card-thumb-placeholder"
+                aria-hidden="true"
+              />
+            </div>
+            <h3 className="wpsuite-card-title">
+              <a href={post.link} target="_blank" rel="noopener noreferrer">
+                <RawHTML>{post.title?.rendered || ""}</RawHTML>
+              </a>
+            </h3>
+            <div className="wpsuite-card-excerpt">
+              <RawHTML>{post.excerpt?.rendered || ""}</RawHTML>
+            </div>
           </article>
         ))}
       </div>
@@ -51,7 +58,7 @@ const Edit = ({ attributes, setAttributes }) => {
   }
 
   return (
-    <div {...blockProps}>
+    <div {...blockProps} className={`wpsuite-grid columns-${columns}`}>
       <InspectorControls>
         <PanelBody title={__("Grid Settings", "wp-gutenberg-block-suite")}>
           <SelectControl

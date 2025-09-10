@@ -34,30 +34,23 @@
         while($the_query->have_posts()){
             $the_query->the_post();
 
-            $thumb_html = '';
-            if(has_post_thumbnail()){
-                $thumb_html = get_the_post_thumbnail(
-                    null,
-                    'medium_large',
-                    ['class' => 'wpsuite-card-thumb']
-                );
-            }
-
             $permalink = get_permalink();
             $title = get_the_title();
             $excerpt = get_the_excerpt();
 
             ?>
             <article <?php post_class('wpsuite-grid-item'); ?> >
-                <?php 
-                    if($thumb_html){
-                ?>
                 <a class='wpsuite-card-image' href='<?php echo esc_url($permalink) ?>' target='_blank' rel='noopener noreferrer' >
-                    <?php echo $thumb_html ?> 
-                </a>
-                <?php
+                <?php 
+                    if(has_post_thumbnail()){
+                ?>
+                <?php 
+                        echo get_the_post_thumbnail(null, 'medium_large', ['class' => 'wpsuite-card-thumb']);
+                    }else{
+                        echo '<div class="wpsuite-card-thumb wpsuite-card-thumb-placeholder"></div>';
                     }
                 ?>
+                </a>
                 <h3 class='wpsuite-card-title'>
                 <a href='<?php echo esc_url($permalink) ?>' target='_blank' rel='noopener noreferrer' >
                     <?php echo esc_html($title) ?>
