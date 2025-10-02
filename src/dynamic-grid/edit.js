@@ -34,7 +34,11 @@ const Edit = ({ attributes, setAttributes }) => {
     );
   } else {
     content = (
-      <div role="list" aria-live="polite">
+      <div
+        className={`wpsuite-grid columns-${columns}`}
+        role="list"
+        aria-live="polite"
+      >
         {posts.map((post) => (
           <article key={post.id} className="wpsuite-grid-item" role="listitem">
             <div className="wpsuite-card-image">
@@ -58,7 +62,7 @@ const Edit = ({ attributes, setAttributes }) => {
   }
 
   return (
-    <div {...blockProps} className={`wpsuite-grid columns-${columns}`}>
+    <div {...blockProps}>
       <InspectorControls>
         <PanelBody title={__("Grid Settings", "wp-gutenberg-block-suite")}>
           <SelectControl

@@ -1,8 +1,9 @@
-.wp-block-wpsuite-dynamic-grid {
+.wpsuite-grid {
   display: grid;
-  gap: 1.5rem;
-
-  margin-bottom: 2rem;
+  margin: 64px auto;
+  gap: 32px;
+  align-items: stretch;
+  grid-template-columns: 1fr;
 
   &.columns-1 {
     grid-template-columns: repeat(1, 1fr);
@@ -48,6 +49,7 @@
   width: 100%;
   aspect-ratio: 16/9;
   overflow: hidden;
+  display: block;
 
   .wpsuite-card-thumb {
     width: 100%;
