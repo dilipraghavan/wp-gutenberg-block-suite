@@ -27,27 +27,29 @@ const Edit = ({ attributes, setAttributes }) => {
           />
         </PanelBody>
       </InspectorControls>
-      <RichText
-        className="wp-block-wpsuite-cta__heading"
-        tagName="h2"
-        placeholder={__("CTA Heading...", "wp-gutenberg-block-suite")}
-        value={heading}
-        onChange={(val) => setAttributes({ heading: val })}
-      />
-      <RichText
-        className="wp-block-wpsuite-cta__body"
-        tagName="p"
-        placeholder={__("CTA Message...", "wp-gutenberg-block-suite")}
-        value={body}
-        onChange={(val) => setAttributes({ body: val })}
-      />
-      {buttonUrl ? (
-        <a href={buttonUrl} className="wp-block-wpsuite-cta__button">
-          {buttonText}
-        </a>
-      ) : (
-        <span aria-disabled="true"></span>
-      )}
+      <div className="wp-block-wpsuite-cta__inner">
+        <RichText
+          className="wp-block-wpsuite-cta__heading"
+          tagName="h2"
+          placeholder={__("CTA Heading...", "wp-gutenberg-block-suite")}
+          value={heading}
+          onChange={(val) => setAttributes({ heading: val })}
+        />
+        <RichText
+          className="wp-block-wpsuite-cta__body"
+          tagName="p"
+          placeholder={__("CTA Message...", "wp-gutenberg-block-suite")}
+          value={body}
+          onChange={(val) => setAttributes({ body: val })}
+        />
+        {buttonUrl ? (
+          <a href={buttonUrl} className="wp-block-wpsuite-cta__button">
+            {buttonText}
+          </a>
+        ) : (
+          <span aria-disabled="true"></span>
+        )}
+      </div>
     </div>
   );
 };
