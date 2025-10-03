@@ -22,7 +22,6 @@ const Save = ({ attributes }) => {
         )}
         {(buttonUrl || buttonText) && (
           <a
-            target="_blank"
             rel="noopener noreferrer"
             href={buttonUrl ?? "#"}
             className="wp-block-wpsuite-cta__button"
