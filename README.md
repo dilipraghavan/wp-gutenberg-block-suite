@@ -27,38 +27,29 @@ A versatile and performant block for driving user action, featuring intuitive in
 
 ---
  
-### Installation
+## Installation
 
 ### For End-Users (Packaged Plugin)
 
 To install a ready-to-use version of the plugin, download the latest release from the official releases page.
 
 1.  Download the **.zip** file from the latest release: **[Click here to download the latest release](https://github.com/dilipraghavan/wp-gutenberg-block-suite/releases)**.
-
 2.  In the WordPress dashboard, go to **Plugins** → **Add New**.
-
 3.  Click **Upload Plugin**, select the downloaded **.zip** file, and click **Install Now**.
-
 4.  After installation, click **Activate Plugin**.
-
-1.  **Clone the Repository:**
 
 ### For Developers (Standard Git)
 
 1.  **Clone the Repository:**
-
     ```bash
     git clone https://github.com/dilipraghavan/wp-gutenberg-block-suite.git wp-content/plugins/wp-suite-blocks
     ```
-
 2.  **Install Dependencies:**
-
     ```bash
     npm install
     # or
     # yarn install
     ```
-
 3.  **Build Assets:**
 
     ```bash
@@ -66,7 +57,6 @@ To install a ready-to-use version of the plugin, download the latest release fro
     # or use start for continuous development
     # npm run start
     ```
-
 4.  **Activate Plugin:**
     Upload the `wp-suite-blocks` directory to your WordPress installation's `wp-content/plugins/` folder and activate it from the WordPress admin dashboard.
 
