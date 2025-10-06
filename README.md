@@ -6,47 +6,49 @@ This project was built using the official `@wordpress/create-block` scaffolding 
 
 ## ✨ Features
 
-This block suite is designed to enhance the editorial experience by offering highly customizable components while strictly controlling the final output for consistency.
+The plugin includes two primary blocks, each highlighting specific, modern WordPress capabilities:
 
-### 1. Dynamic Grid Block (`dynamic-grid`)
+1.  Dynamic Content Grid Block (dynamic-grid)
 
-A flexible container block for showcasing content (e.g., posts, cards, or custom content) in an organized, responsive grid layout.
+This is the flagship block, designed for displaying live, dynamic content in a structured, responsive grid. It showcases complex back-end integration with a seamless editor experience.
 
-| Feature                | Implementation Detail                                                                                                                     | Benefit to Client                                                                          |
-| :--------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
-| **Responsive Control** | Supports 1 to 6 columns. Automatically collapses to a single column on mobile (< 768px).                                                  | Ensures content is readable and beautifully presented on all devices.                      |
-| **Full Width Support** | Explicitly overrides theme container constraints using the standard `alignfull` pattern (`width: 100vw; margin-left: calc(50% - 50vw);`). | Allows for modern, edge-to-edge layouts for high-impact sections.                          |
-| **Layout Consistency** | Uses CSS Grid with `gap` properties to manage spacing, eliminating the common "margin-collapse" issues seen with older float-based grids. | Guarantees consistent spacing and alignment across the site, regardless of content length. |
+-   **Custom Gateway Integration:** Utilizes React Hooks (useSelect) to fetch real post data via the WordPress REST API, providing a true live preview within the editor canvas.
+-   **Server Rendering:**  Final markup is generated securely on the server via a PHP render_callback and WP_Query, ensuring content is always fresh and improving frontend performance.    
+-   **Modern Layout:** Employs native CSS Grid with gap properties for spacing, ensuring layout consistency and eliminating common margin-collapse issues.
+-   **Full Width Support:** Explicitly integrates the native alignfull pattern, allowing the block to override theme container constraints for modern, edge-to-edge layouts.
+  
+2.  Call to Action (CTA) Block (cta)
+   
+A versatile and performant block for driving user action, featuring intuitive inline editing and styling controls. 
 
-### 2. Call to Action (CTA) Block (`cta`)
-
-A powerful component to drive conversions, designed to be highly visible and easily stylable.
-
-| Feature                 | Implementation Detail                                                                                                            | Benefit to Client                                                                          |
-| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
-| **Custom Styling**      | Custom background styles implemented via `linear-gradient` (e.g., White-to-Blue demo gradient).                                  | Easy application of branded, visually appealing backgrounds without custom CSS.            |
-| **CSS Specificity Fix** | Highly specific SCSS selectors implemented to ensure core link styles (`text-decoration: none;`) always win over theme defaults. | Eliminates common visual bugs and maintains clean design across all themes.                |
-| **Inner Block Ready**   | Can accept multiple nested blocks (heading, paragraph, button) for flexible content composition.                                 | Allows editors to compose rich CTA content without being restricted to simple text fields. |
+-   **Inner Block Ready:** Configured to accept multiple nested blocks (e.g., Heading, Paragraph, Button) using the InnerBlocks API for highly flexible content composition.
+-   **Inline Editing:**  Utilizes the RichText component for seamless, direct editing of key content (Heading and Body) within the editor canvas.   
+-   **Advanced Styling:** Supports custom background styles via CSS linear-gradient and integrates core spacing supports, providing visual appeal without custom CSS. 
 
 ---
-
-## 🛠️ Technical Specifications & Setup
-
-This section outlines how to get the project running in a local development environment.
-
-### Prerequisites
-
-- Node.js (LTS version recommended)
-- npm or yarn
-- Local WordPress environment (e.g., Local by Flywheel, Lando, or Docker)
-
+ 
 ### Installation
+
+### For End-Users (Packaged Plugin)
+
+To install a ready-to-use version of the plugin, download the latest release from the official releases page.
+
+1.  Download the **.zip** file from the latest release: **[Click here to download the latest release](https://github.com/dilipraghavan/wp-gutenberg-block-suite/releases)**.
+
+2.  In the WordPress dashboard, go to **Plugins** → **Add New**.
+
+3.  Click **Upload Plugin**, select the downloaded **.zip** file, and click **Install Now**.
+
+4.  After installation, click **Activate Plugin**.
+
+1.  **Clone the Repository:**
+
+### For Developers (Standard Git)
 
 1.  **Clone the Repository:**
 
     ```bash
-    git clone [your-repo-url] wp-suite-blocks
-    cd wp-suite-blocks
+    git clone https://github.com/dilipraghavan/wp-gutenberg-block-suite.git wp-content/plugins/wp-suite-blocks
     ```
 
 2.  **Install Dependencies:**
