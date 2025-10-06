@@ -8,7 +8,7 @@ This project was built using the official `@wordpress/create-block` scaffolding 
 
 The plugin includes two primary blocks, each highlighting specific, modern WordPress capabilities:
 
-1.  Dynamic Content Grid Block (dynamic-grid)
+## 1.  Dynamic Content Grid Block (dynamic-grid)
 
 This is the flagship block, designed for displaying live, dynamic content in a structured, responsive grid. It showcases complex back-end integration with a seamless editor experience.
 
@@ -17,7 +17,7 @@ This is the flagship block, designed for displaying live, dynamic content in a s
 -   **Modern Layout:** Employs native CSS Grid with gap properties for spacing, ensuring layout consistency and eliminating common margin-collapse issues.
 -   **Full Width Support:** Explicitly integrates the native alignfull pattern, allowing the block to override theme container constraints for modern, edge-to-edge layouts.
   
-2.  Call to Action (CTA) Block (cta)
+## 2.  Call to Action (CTA) Block (cta)
    
 A versatile and performant block for driving user action, featuring intuitive inline editing and styling controls. 
 
