@@ -48,14 +48,14 @@ To install a ready-to-use version of the plugin, download the latest release fro
     ```bash
     npm install
     # or
-    # yarn install
+    yarn install
     ```
 3.  **Build Assets:**
 
     ```bash
     npm run build
     # or use start for continuous development
-    # npm run start
+    npm run start
     ```
 4.  **Activate Plugin:**
     Upload the `wp-suite-blocks` directory to your WordPress installation's `wp-content/plugins/` folder and activate it from the WordPress admin dashboard.
